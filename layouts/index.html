@@ -1,0 +1,30 @@
+{{ template "theme/partials/header.html" . }}
+
+<!-- <
+div class="jumbotron page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                <div class="title">
+                    <h1 align="center">{{ lower .Title }}</h1>
+                    <h2 class="page-subtitle">{{ .Site.Params.subtitle }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+            {{ range where .Data.Pages.ByDate.Reverse "Section" "word" }}
+            {{ partial "itemsummary.html" . }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+-->
+
+{{ template "theme/partials/scripts.html" . }}
+</body>
+</html>

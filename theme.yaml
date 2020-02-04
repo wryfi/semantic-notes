@@ -1,0 +1,15 @@
+author:
+  homepage: https://wryfi.net
+  name: Chris Haumesser
+description: A simple notebook styled with semantic-ui
+features: []
+homepage: https://github.com/wryfi/semantic-notes
+license: MIT
+licenselink: https://github.com/wryfi/semantic-notes/blob/master/LICENSE
+min_version: '0.41'
+name: Semantic Notes
+original:
+  homepage: ''
+  name: ''
+  repo: ''
+tags: []
