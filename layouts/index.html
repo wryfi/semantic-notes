@@ -1,30 +1,23 @@
-{{ template "theme/partials/header.html" . }}
-
-<!-- <
-div class="jumbotron page-title">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                <div class="title">
-                    <h1 align="center">{{ lower .Title }}</h1>
-                    <h2 class="page-subtitle">{{ .Site.Params.subtitle }}</h2>
+{{ define "content" }}
+    <div class="ui text container">
+    {{ range site.RegularPages.GroupByDate "2 January 2006" }}
+        <h1 class="ui header month">{{ .Key }}</h1>
+        <div class="ui horizontal divider"></div>
+        <div class="ui items">
+            {{ range .Pages }}
+            <div class="item">
+                <div class="ui tiny image">
+                    <div class="ui large header">{{ .Date.Format "15:04" }}</div>
+                </div>
+                <div class="content">
+                    <a class="ui medium header" href="{{ .Permalink }}">{{ .Title }}</a>
+                    <div class="description">
+                        {{ .Date.Format "2 Jan 2006 (Mon) 15:04" }}
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-            {{ range where .Data.Pages.ByDate.Reverse "Section" "word" }}
-            {{ partial "itemsummary.html" . }}
             {{ end }}
         </div>
+    {{ end }}
     </div>
-</div>
--->
-
-{{ template "theme/partials/scripts.html" . }}
-</body>
-</html>
+{{ end }}
