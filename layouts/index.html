@@ -1,8 +1,7 @@
 {{ define "content" }}
     <div class="ui text container">
     {{ range site.RegularPages.GroupByDate "2 January 2006" }}
-        <h1 class="ui header month">{{ .Key }}</h1>
-        <div class="ui horizontal divider"></div>
+        <h1 class="ui dividing header">{{ .Key }}</h1>
         <div class="ui items">
             {{ range .Pages }}
             <div class="item">
