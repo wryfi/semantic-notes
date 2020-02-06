@@ -1,0 +1,18 @@
+{{ range .Pages.GroupByDate "2 January 2006" }}
+    <h1 class="ui dividing header">{{ .Key }}</h1>
+    <div class="ui items">
+        {{ range .Pages }}
+            <div class="item">
+                <div class="ui tiny image">
+                    <div class="ui large header">{{ .Date.Format "15:04" }}</div>
+                </div>
+                <div class="content">
+                    <a class="ui medium header" href="{{ .Permalink }}">{{ .Title }}</a>
+                    <div class="description">
+                        {{ .Date.Format "2 Jan 2006 (Mon) 15:04" }}
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+{{ end }}

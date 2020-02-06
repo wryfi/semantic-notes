@@ -1,0 +1,7 @@
+{{ define "content" }}
+    <div class="ui text container">
+        {{ range .Pages.GroupByDate "2006" -}}
+            {{ partial "posts.html" . }}
+        {{ end }}
+    </div>
+{{ end }}

@@ -1,0 +1,8 @@
+
+{{ define "content" }}
+    <div class="ui text container">
+        {{ range .Pages -}}
+            <a class="ui tag label" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- end }}
+    </div>
+{{ end }}
