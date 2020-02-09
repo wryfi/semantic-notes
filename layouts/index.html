@@ -1,7 +1,9 @@
 {{ define "content" }}
-    <div class="ui text container">
-    {{ range .Site.RegularPages.GroupByDate "2006" }}
-        {{ partial "posts.html" . }}
-    {{ end }}
+    <div class="ui container">
+        <div class="ui text container">
+            {{ range (where .Site.RegularPages "Date" "ge" (now.AddDate 0 0 -60)).GroupByDate "2006" }}
+                {{ partial "posts.html" . }}
+            {{ end }}
+        </div>
     </div>
 {{ end }}

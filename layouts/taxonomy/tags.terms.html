@@ -1,0 +1,45 @@
+{{ define "content" }}
+    <div class="ui text container">
+        <h1 class="ui huge header">{{ .Title }}</h1>
+
+        <div class="ui grid">
+            <div class="five wide column">
+                <div class="ui list">
+                    {{ range sort .Pages "Title" -}}
+                        <a class="item" href="{{ .RelPermalink }}">
+                            <i class="tag icon"></i>
+                            <div class="content">
+                                {{ .Title }}
+                            </div>
+                        </a>
+                    {{- end }}
+                </div>
+            </div>
+
+            <div class="eleven wide column">
+                {{ if not (eq (len $.Site.Taxonomies.tags) 0) }}
+                    {{ $fontUnit := "rem" }}
+                    {{ $largestFontSize := 3 }}
+                    {{ $smallestFontSize := 1 }}
+                    {{ $fontSpread := sub $largestFontSize $smallestFontSize }}
+                    {{ $max := add (len (index $.Site.Taxonomies.tags.ByCount 0).Pages) 1 }}
+                    {{ $min := len (index $.Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+                    {{ $spread := sub $max $min }}
+                    {{ $fontStep := div $fontSpread $spread }}
+
+                    <div id="tag-cloud" style="padding: 5px 15px">
+                        {{ range $name, $taxonomy := $.Site.Taxonomies.tags }}
+                            {{ $currentTagCount := len $taxonomy.Pages }}
+                            {{ $currentFontSize := (add $smallestFontSize (mul (sub $currentTagCount $min) $fontStep) ) }}
+                            {{ $count := len $taxonomy.Pages }}
+                            {{ $weight := div (sub (math.Log $count) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+                            {{ $currentFontSize = (add $smallestFontSize (mul (sub $largestFontSize $smallestFontSize) $weight) ) }}
+                            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
+                               style="font-size:{{$currentFontSize}}{{$fontUnit}}; padding: .25rem;">{{ $name }}</a>
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{ end }}

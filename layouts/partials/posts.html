@@ -1,6 +1,6 @@
 {{ range .Pages.GroupByDate "2 January 2006" }}
     <h1 class="ui dividing header">{{ .Key }}</h1>
-    <div class="ui items">
+    <div class="ui unstackable items">
         {{ range .Pages }}
             <div class="item">
                 <div class="ui tiny image">

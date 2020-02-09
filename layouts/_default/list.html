@@ -1,5 +1,6 @@
 {{ define "content" }}
     <div class="ui text container">
+        <h1 class="ui huge header">{{ .Title }}</h1>
         {{ range .Pages.GroupByDate "2006" -}}
             {{ partial "posts.html" . }}
         {{ end }}

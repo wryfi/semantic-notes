@@ -1,3 +1,11 @@
+body {
+    margin-top: 2em;
+}
+
+.nav {
+    margin-bottom: 2em;
+}
+
 h1,
 h2,
 h3,
@@ -11,17 +19,13 @@ h6 {
     font-family: Alegreya;
 }
 
-.ui.header.month {
-    border-bottom: 1px solid black;
-}
-
 .ui.items > .item > .content > .header {
     font-family: Alegreya;
 }
 
 .ui.items > .item > .content > .description {
     margin-top: 0;
-    font-size: .95rem;
+    font-size: .98rem;
 }
 
 pre {
@@ -35,10 +39,6 @@ code {
     font-family: "Ubuntu Mono";
 }
 
-.post-meta {
-    margin-bottom: 1rem;
-}
-
 blockquote {
     background: #fafafa;
     border: 1px solid #ddd;
@@ -48,3 +48,15 @@ blockquote {
     border-radius: 5px;
 }
 
+div.row.meta {
+    font-size: 0.98rem;
+    margin: 0 0 1em;
+}
+
+a i {
+    color: black;
+}
+
+div.nav .ui.icon.dropdown i.bars {
+    padding-right: 2.1rem;
+}
